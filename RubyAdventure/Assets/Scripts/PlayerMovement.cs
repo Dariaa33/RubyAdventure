@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 move;
     [SerializeField]
     float speed = 0.1f;
-
+   
     void Start()
     {
         MoveAction.Enable();
