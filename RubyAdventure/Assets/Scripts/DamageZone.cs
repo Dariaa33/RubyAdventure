@@ -18,7 +18,7 @@ public class DamageZone : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        HealthSystem controller = other.GetComponent<HealthSystem>();
+        PlayerMovement controller = other.GetComponent<PlayerMovement>();
 
         if (controller != null)
         {
@@ -26,8 +26,4 @@ public class DamageZone : MonoBehaviour
         }
     }
 
-    void OnTriggerStay2D(Collider2D other)
-    {
-
-    }
 }

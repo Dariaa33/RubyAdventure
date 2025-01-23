@@ -15,7 +15,7 @@ public class CollectingHealth : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        HealthSystem controller = other.GetComponent<HealthSystem>();
+        PlayerMovement controller = other.GetComponent<PlayerMovement>();
 
         if (controller != null && controller.currentHealth < controller.maxHealth)
         {
