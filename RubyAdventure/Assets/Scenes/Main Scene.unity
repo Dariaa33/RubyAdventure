@@ -9160,6 +9160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1190748254}
   - component: {fileID: 1190748253}
+  - component: {fileID: 1190748255}
   m_Layer: 5
   m_Name: UIDocument
   m_TagString: Untagged
@@ -9198,6 +9199,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1190748255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190748252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a905e32d167b4f449fff9ff5250e332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1201741054
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11148,11 +11161,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3124434146192535441, guid: f72f3a9c37826c144b4b0ac8dc3ae31c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.19
+      value: -4.05
       objectReference: {fileID: 0}
     - target: {fileID: 3124434146192535441, guid: f72f3a9c37826c144b4b0ac8dc3ae31c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.25
+      value: 2.08
       objectReference: {fileID: 0}
     - target: {fileID: 3124434146192535441, guid: f72f3a9c37826c144b4b0ac8dc3ae31c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11192,7 +11205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4666323564588529421, guid: f72f3a9c37826c144b4b0ac8dc3ae31c, type: 3}
       propertyPath: vertical
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

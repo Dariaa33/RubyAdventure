@@ -40,7 +40,7 @@ public class EnemyController : MonoBehaviour
         {
             position.y = position.y + speed * direction * Time.deltaTime;
         }
-        else
+        else if (!vertical)
         {
             position.x = position.x + speed * direction * Time.deltaTime;
         }
@@ -48,8 +48,8 @@ public class EnemyController : MonoBehaviour
 
         rb2d.MovePosition(position);
 
-        animator.SetFloat("Move X", 0);
-        animator.SetFloat("Move Y", direction);
+        //animator.SetFloat("Move X", 0);
+        //animator.SetFloat("Move Y", direction);
     }
     void OnTriggerEnter2D(Collider2D other)
     {
