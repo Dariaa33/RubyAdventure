@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CollectingHealth : MonoBehaviour
 {
+    public AudioClip collectedClip;
     void Start()
     {
         
@@ -21,6 +22,7 @@ public class CollectingHealth : MonoBehaviour
         {
             controller.ChangeHealth(1);
             Destroy(gameObject);
+            controller.PlaySound(collectedClip);
         }
     }
 

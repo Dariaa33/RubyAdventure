@@ -5,20 +5,24 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public float speed;
-    Rigidbody2D rb2d;
     public bool vertical;
     public float changeTime = 3.0f;
+
+    // Private variables
+    Rigidbody2D rigidbody2d;
+    Animator animator;
     float timer;
     int direction = 1;
-    Animator animator;
+    bool broken = true;
+
     void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
-        timer = changeTime;
+        rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        timer = changeTime;
+
     }
 
-    
     void Update()
     {
         timer -= Time.deltaTime;
@@ -33,24 +37,31 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
-        
-        Vector2 position = rb2d.position;
+        if (!broken)
+        {
+            return;
+        }
+
+        Vector2 position = rigidbody2d.position;
 
         if (vertical)
         {
             position.y = position.y + speed * direction * Time.deltaTime;
+            animator.SetFloat("Move X", 0);
+            animator.SetFloat("Move Y", direction);
         }
-        else if (!vertical)
+        else
         {
             position.x = position.x + speed * direction * Time.deltaTime;
+            animator.SetFloat("Move X", direction);
+            animator.SetFloat("Move Y", 0);
         }
 
 
-        rb2d.MovePosition(position);
-
-        //animator.SetFloat("Move X", 0);
-        //animator.SetFloat("Move Y", direction);
+        rigidbody2d.MovePosition(position);
     }
+
+
     void OnTriggerEnter2D(Collider2D other)
     {
         PlayerMovement player = other.gameObject.GetComponent<PlayerMovement>();
@@ -60,6 +71,21 @@ public class EnemyController : MonoBehaviour
         {
             player.ChangeHealth(-1);
         }
+    }
+
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(gameObject);
+    }
+
+
+
+    public void Fix()
+    {
+        broken = false;
+        GetComponent<Rigidbody2D>().simulated = false;
+        animator.SetTrigger("Fixed");
     }
 }
 
