@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -8,19 +9,19 @@ public class EnemyController : MonoBehaviour
     public bool vertical;
     public float changeTime = 3.0f;
 
-    // Private variables
+
     Rigidbody2D rigidbody2d;
     Animator animator;
     float timer;
     int direction = 1;
     bool broken = true;
-
+    
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         timer = changeTime;
-
+        //Add
     }
 
     void Update()
@@ -73,19 +74,18 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-
     void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);
     }
-
-
 
     public void Fix()
     {
         broken = false;
         GetComponent<Rigidbody2D>().simulated = false;
         animator.SetTrigger("Fixed");
+        //Remove
     }
+
 }
 
